@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.color-block{
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+	}
+</style>
+<body ng-app="gradientApp" ng-controller="mainCtrl">
+		<form>
+			First Color:<br>
+			<input type="text" ng-model="option.color1"><br>
+			Second Color:<br>
+			<input type="text" ng-model="option.color2"><br>
+			Middle Color(Optional):<br>
+			<input type="text" ng-model="option.midColor"><br>
+			<!-- Middle Color(Optional, in fraction):<br> -->
+			<!-- <input type="value" ng-model="option.midColorPosition"><br> -->
+			<!-- OR<br>
+			Group :<br>
+			<input type="text" ng-model="option.group"><br>
+			slices : <br> -->
+			<input type="number" ng-model="option.n">
+		</form>
+		<button ng-click="GenerateColor()">Custom</button><br>
+		<!-- <button ng-click="GenerateColorG()">Group</button><br> -->
+		RGB : <br>
+        <div ng-repeat="color in colorsRGB track by $index" class="color-block" ng-style="getStyleRGB($index)"></div>
+        <br>
+        {{colorsRGB}}<br><br>
+        HSV : <br>
+        <div ng-repeat="color in colorsHSV track by $index" class="color-block" ng-style="getStyleHSV($index)"></div>
+        <br>
+        {{colorsHSV}}
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="gradient.js"></script>
+        <script src="gradientservice.js"></script>
+</body>
+</html>
